@@ -22,7 +22,7 @@ const Auth = () => {
   useEffect(() => {
     function start() {
       gapi.client.init({
-        clientId: '1060185394494-pcu8ph29mmr6e3ggr0kcrihmh2cq2abs.apps.googleusercontent.com',
+        clientId: 'your client id',
         scope: 'email',
       });
     }
@@ -92,7 +92,7 @@ const Auth = () => {
             </Button>
 
             <GoogleLogin
-              clientId='1060185394494-pcu8ph29mmr6e3ggr0kcrihmh2cq2abs.apps.googleusercontent.com'
+              clientId='your client id'
               render={(renderProps) => (
                 <Button className={classes.googleButton} color='primary' fullWidth onClick={renderProps.onClick} disabled={renderProps.disabled} startIcon={<Icon/>} variant='contained'>
                   Sign In using Google 
