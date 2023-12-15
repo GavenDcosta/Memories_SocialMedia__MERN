@@ -8,6 +8,7 @@ import useStyles from './styles'
 import {Link} from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
+import decode from 'jwt-decode'
 
 const Navbar = () => {
 
@@ -20,18 +21,25 @@ const Navbar = () => {
 
     console.log(user)
 
-    useEffect(() => {
-      const token = user?.token
-
-      setUser(JSON.parse(localStorage.getItem('profile')))
-    }, [location])
-
     const logout = () => {
         dispatch({type:'LOGOUT'})
         history.push('/')
 
         setUser(null)
     }
+
+    useEffect(() => {
+      const token = user?.token
+
+      if(token){
+        const decodedToken = decode(token)
+
+        if(decodedToken.exp * 1000 < new Date().getTime()) logout()
+      }
+
+      setUser(JSON.parse(localStorage.getItem('profile')))
+    }, [location])
+    
 
     return (
         <AppBar className={classes.appBar} position="static" color="inherit">
