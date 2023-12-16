@@ -10,6 +10,7 @@ import useStyles from './styles'
 import { useState } from 'react';
 import Input from './Input';
 import {signin, signup} from '../../actions/auth'
+import env from 'react-dotenv';
 
 import { gapi } from 'gapi-script';
 
@@ -19,13 +20,16 @@ const initialState= {firstName: "", lastName:"", email:"", password:"", confirmP
 
 const Auth = () => {
 
+
   const dispatch = useDispatch()
   const history = useHistory()
+  // const clientId = env.REACT_PUBLIC_GOOGLE_CLIENT_ID
+  const clientId = '1060185394494-pcu8ph29mmr6e3ggr0kcrihmh2cq2abs.apps.googleusercontent.com'
 
   useEffect(() => {
     function start() {
       gapi.client.init({
-        clientId: 'your client id',
+        clientId: clientId,
         scope: 'email',
       });
     }
@@ -102,7 +106,7 @@ const Auth = () => {
             </Button>
 
             <GoogleLogin
-              clientId='your client id'
+              clientId= {clientId}
               render={(renderProps) => (
                 <Button className={classes.googleButton} color='primary' fullWidth onClick={renderProps.onClick} disabled={renderProps.disabled} startIcon={<Icon/>} variant='contained'>
                   Sign In using Google 

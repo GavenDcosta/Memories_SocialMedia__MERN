@@ -11,7 +11,7 @@ function App() {
   const user = JSON.parse(localStorage.getItem('profile'))
 
   return (
-    <Container maxWidth = "lg">
+    <Container maxWidth = "xl">
       <Navbar/>
        <Switch>
          <Route path="/" exact component={() => <Redirect to="/posts" />}/>
