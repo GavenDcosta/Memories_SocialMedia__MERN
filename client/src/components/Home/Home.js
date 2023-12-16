@@ -33,24 +33,27 @@ const Home = () => {
   
     const dispatch = useDispatch()
   
-    useEffect(() => {
-       dispatch(getPosts())
-    }, [currentId, dispatch])
+    // useEffect(() => {
+    //    dispatch(getPosts())
+    // }, [currentId, dispatch])
 
 
+    
+    const searchPost = () => {
+      if(search.trim() || tags){
+        dispatch(getPostsBySearch({search, tags: tags.join(',') }))   //cannot pass an array in url parameters , so convert it to a string
+        history.push(`/posts/search?searchQuery=${search || 'none'}$tags=${tags.join(',')}`)
+      }else{
+        history.push('/')
+      }
+    }
+    
     const handleKeyPress = (e) => {
       if(e.keyCode === 13){               //key code 13 is the enter key
         searchPost() 
       }
     }
 
-    const searchPost = () => {
-      if(search.trim()){
-        dispatch(getPostsBySearch({search, tags: tags.join(',') }))   //cannot pass an array in url parameters , so convert it to a string
-      }else{
-        history.push('/')
-      }
-    }
 
     const handleAdd = (tag) => setTags([...tags, tag])
 
@@ -70,7 +73,7 @@ const Home = () => {
                      variant="outlined" 
                      label="Search Memories" 
                      fullWidth
-                     onKeyPress={handleKeyPress}
+                     onKeyDown={handleKeyPress}
                      value={search}
                      onChange={(e) => setSearch(e.target.value)}
                   />
@@ -86,7 +89,7 @@ const Home = () => {
                 </AppBar>
                 <Form currentId={currentId} setCurrentId = {setCurrentId}/>
                 <Paper  elevation={6}>
-                  <Pagination />
+                  <Pagination page={page} />
                 </Paper>
               </Grid>
             </Grid>
