@@ -23,8 +23,7 @@ const Auth = () => {
 
   const dispatch = useDispatch()
   const history = useHistory()
-  // const clientId = env.REACT_PUBLIC_GOOGLE_CLIENT_ID
-  const clientId = '1060185394494-pcu8ph29mmr6e3ggr0kcrihmh2cq2abs.apps.googleusercontent.com'
+  const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID
 
   useEffect(() => {
     function start() {

@@ -1,17 +1,16 @@
 import React, {useState, useEffect} from 'react'
-
 import { TextField, Button, Typography, Paper } from '@material-ui/core'
-
 import useStyles from './styles'
 
 import FileBase from 'react-file-base64'
 
 import { useDispatch, useSelector } from 'react-redux'
-
 import { createPost, updatePost } from '../../actions/posts' 
-
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 
 const Form = ({ currentId, setCurrentId }) => {
+
+   const history = useHistory()
 
     const [postData, setPostData] = useState({
         title: '',
@@ -22,7 +21,7 @@ const Form = ({ currentId, setCurrentId }) => {
 
     const user = JSON.parse(localStorage.getItem('profile'))
 
-    const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null)
+    const post = useSelector((state) => currentId ? state.posts.posts.find((p) => p._id === currentId) : null)
 
     useEffect(() => {
        if (post) setPostData(post)
@@ -41,8 +40,7 @@ const Form = ({ currentId, setCurrentId }) => {
      
        }else{
          // dispatch(createPost(currentId, postData))
-         dispatch(createPost({...postData, name: user?.result?.name}))
-         
+         dispatch(createPost({...postData, name: user?.result?.name}, history))   
        }
 
        clear()
