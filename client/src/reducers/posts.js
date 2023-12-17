@@ -19,9 +19,9 @@ export default (state = [{ isLoading: true, posts: [] }], action) => {
         return { ...state , posts: [...state.posts, action.payload] } 
     case UPDATE:
     case LIKE:    
-        return { ...state, posts: state.posts.map((post) => post._id == action.payload._id ? action.payload : post)  }   
+        return { ...state, posts: state.posts.map((post) => post._id === action.payload._id ? action.payload : post)  }   
     case DELETE:
-        return  { ...state, posts: state.posts.filter((post) => post._id != action.payload) }            
+        return  { ...state, posts: state.posts.filter((post) => post._id !== action.payload) }            
     case FETCH_BY_SEARCH:
         return { ...state, posts: action.payload}  
     case FETCH_POST:

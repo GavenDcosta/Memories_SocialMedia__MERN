@@ -10,7 +10,6 @@ import useStyles from './styles'
 import { useState } from 'react';
 import Input from './Input';
 import {signin, signup} from '../../actions/auth'
-import env from 'react-dotenv';
 
 import { gapi } from 'gapi-script';
 
