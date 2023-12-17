@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({limit:"30mb", extended:true}))
 
 app.use(cors({
   origin: "https://gaven-memories-mern.vercel.app",
-  methods: ["GET", "POST", "PATCH", "DELETE"],
+  methods: "*",
   credentials: true
 }))
 
