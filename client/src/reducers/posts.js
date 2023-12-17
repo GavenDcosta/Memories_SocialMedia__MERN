@@ -1,7 +1,7 @@
 import {DELETE, COMMENT, CREATE, FETCH_POST, UPDATE, LIKE, FETCH_ALL, FETCH_BY_SEARCH, END_LOADING, START_LOADING} from '../constants/actionTypes'   //constants are always specified seperately to make error handeling easier
 
 
-export default (state = [{ isLoading: true, posts: [] }], action) => {
+export default function reducer (state = [{ isLoading: true, posts: [] }], action){
    switch (action.type){
     case START_LOADING:
         return { ...state, isLoading: true }
