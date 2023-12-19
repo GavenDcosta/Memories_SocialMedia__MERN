@@ -5,7 +5,7 @@ import Form from '../Form/Form';
 import {getPosts, getPostsBySearch} from '../../actions/posts'
 import {useState, useEffect} from 'react'
 import { useDispatch } from 'react-redux'
-import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
+import { useHistory, useLocation } from 'react-router-dom';
 import Pagination from '../Pagination';
 import ChipInput from 'material-ui-chip-input'
 

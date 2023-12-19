@@ -1,9 +1,8 @@
 import React, {useEffect} from 'react'
-import {Button, Paper, Grid, Typography, Container} from '@material-ui/core'
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import {Button, Paper, Grid, Typography, Container, Avatar} from '@material-ui/core'
+import { useHistory } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login'
 
-import Avatar from '@mui/material/Avatar';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import Icon from './Icon';
 import useStyles from './styles'

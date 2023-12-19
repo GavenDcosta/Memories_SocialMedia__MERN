@@ -7,8 +7,7 @@ import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt'
 import ThumbUpAltOutlined from '@material-ui/icons/ThumbUpAltOutlined'
 import DeleteIcon from '@material-ui/icons/Delete'
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz'
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
-
+import { useHistory } from 'react-router-dom';
 import moment from 'moment'  //gives us => 5mins ago, 1hour ago etc..based on the date 
 
 import { useDispatch } from 'react-redux'

@@ -6,7 +6,7 @@ import FileBase from 'react-file-base64'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { createPost, updatePost } from '../../actions/posts' 
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
+import { useHistory } from 'react-router-dom'
 
 const Form = ({ currentId, setCurrentId }) => {
 

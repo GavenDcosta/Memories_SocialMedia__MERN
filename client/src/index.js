@@ -1,24 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+
+import { reducers } from './reducers';
 import App from './App';
-import { BrowserRouter as Router } from 'react-router-dom'
+import './index.css';
 
-import './index.css'
+const store = createStore(reducers, {}, compose(applyMiddleware(thunk)));
 
-import { Provider } from 'react-redux'
-import { createStore, applyMiddleware, compose } from 'redux'
-import thunk from 'redux-thunk'
-import reducers from './reducers'
-
-
-const store = createStore(reducers, compose(applyMiddleware(thunk)))
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+ReactDOM.render(
   <Provider store={store}>
-    <Router>
-      <App />
-    </Router>
-  </Provider>
+    <App />
+  </Provider>,
+  document.getElementById('root'),
 );
-

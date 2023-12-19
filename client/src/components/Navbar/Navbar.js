@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import {AppBar, Typography, Button} from '@material-ui/core'
-import Avatar from '@mui/material/Avatar';
-import Toolbar from '@mui/material/Toolbar';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
-import memories from '../../images/memories.png'
+import {AppBar, Typography, Button, Avatar, Toolbar} from '@material-ui/core'
+import { useHistory } from 'react-router-dom';
 import memoriesLogo from '../../images/memories-Logo.png'
 import memoriesText from '../../images/memories-Text.png'
 import useStyles from './styles'
 import {Link} from 'react-router-dom'
 import { useDispatch } from 'react-redux';
-import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
+import { useLocation } from 'react-router-dom';
 import decode from 'jwt-decode'
 
 const Navbar = () => {
