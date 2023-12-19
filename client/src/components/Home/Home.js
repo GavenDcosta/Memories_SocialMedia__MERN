@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Grow, Grid, Paper, AppBar, TextField, Button } from '@material-ui/core'
+import { Container, Grow, Grid, Paper, AppBar, TextField, Button, Chip } from '@material-ui/core'
 import Posts from '../Posts/Posts'
 import Form from '../Form/Form';
 import {getPosts, getPostsBySearch} from '../../actions/posts'
@@ -7,7 +7,7 @@ import {useState, useEffect} from 'react'
 import { useDispatch } from 'react-redux'
 import { useHistory, useLocation } from 'react-router-dom';
 import Pagination from '../Pagination';
-import ChipInput from 'material-ui-chip-input'
+
 
 
 import useStyles from './styles'
@@ -77,7 +77,7 @@ const Home = () => {
                      value={search}
                      onChange={(e) => setSearch(e.target.value)}
                   />
-                  <ChipInput 
+                  <Chip 
                     style={{margin: '10px 0'}}
                     value={tags}
                     onAdd={handleAdd}

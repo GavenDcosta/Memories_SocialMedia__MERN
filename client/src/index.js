@@ -11,8 +11,10 @@ import './index.css';
 const store = createStore(reducers, {}, compose(applyMiddleware(thunk)));
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root'),
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
