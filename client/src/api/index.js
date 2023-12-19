@@ -2,7 +2,7 @@ import axios from 'axios'
 
 // const API = axios.create({baseUrl: 'http://localhost:5000'})
 
-const API = axios.create({baseUrl: 'https://gaven-socialmemories-api.vercel.app'})
+const API = axios.create({baseURL: 'https://gaven-socialmemories-api.vercel.app'})
 
 //for middleware to work
 API.interceptors.request.use((req) => {
