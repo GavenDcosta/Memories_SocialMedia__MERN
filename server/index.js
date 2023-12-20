@@ -17,7 +17,7 @@ app.use(bodyParser.json({limit:"30mb", extended:true}))
 app.use(bodyParser.urlencoded({limit:"30mb", extended:true}))
 
 app.use(cors({
-  origin: 'https://gaven-memories-mern.netlify.app',
+  origin: 'https://rococo-cocada-00bc93.netlify.app',
 }));
 
 
