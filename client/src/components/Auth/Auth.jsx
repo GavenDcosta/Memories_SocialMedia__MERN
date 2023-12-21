@@ -10,6 +10,7 @@ import { useState } from 'react';
 import Input from './Input';
 import {signin, signup} from '../../actions/auth'
 
+
 import { gapi } from 'gapi-script';
 
 import {useDispatch} from 'react-redux'
@@ -21,7 +22,7 @@ const Auth = () => {
 
   const dispatch = useDispatch()
   const history = useHistory()
-  const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID
+  const clientId = import.meta.env.VITE_REACT_APP_GOOGLE_CLIENT_ID
 
   useEffect(() => {
     function start() {
