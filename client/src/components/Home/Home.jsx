@@ -22,6 +22,7 @@ const Home = () => {
     const [currentId, setCurrentId] = useState(null)
     const [search, setSearch] = useState("")
     const [tags, setTags] = useState([])
+    const [newTag, setNewTag] = useState('');
 
     const classes = useStyles()
 
@@ -42,7 +43,7 @@ const Home = () => {
     const searchPost = () => {
       if(search.trim() || tags){
         dispatch(getPostsBySearch({search, tags: tags.join(',') }))   //cannot pass an array in url parameters , so convert it to a string
-        history.push(`/posts/search?searchQuery=${search || 'none'}$tags=${tags.join(',')}`)
+        history.push(`/posts/search?searchQuery=${search || 'none'}&tags=${tags.join(',')}`)
       }else{
         history.push('/')
       }
@@ -55,7 +56,14 @@ const Home = () => {
     }
 
 
-    const handleAdd = (tag) => setTags([...tags, tag])
+    // const handleAdd = (tag) => setTags([...tags, tag])
+
+    const handleAdd = () => {
+      if (newTag.trim() !== '') {
+        setTags([...tags, newTag.trim()]);
+        setNewTag('');
+      }
+    };
 
     const handleDelete = (tagToDelete) => setTags(tags.filter((tag) => tag !== tagToDelete))
 
@@ -77,13 +85,23 @@ const Home = () => {
                      value={search}
                      onChange={(e) => setSearch(e.target.value)}
                   />
-                  <Chip 
-                    style={{margin: '10px 0'}}
-                    value={tags}
-                    onAdd={handleAdd}
-                    onDelete={handleDelete}
+                  <div>
+                     {tags.map((tag, index) => (
+                       <Chip
+                         key={index}
+                         label={tag}
+                         onDelete={() => handleDelete(tag)}
+                         style={{ margin: '4px' }}
+                       />
+                     ))}
+                  </div>
+                  <TextField
+                    label="Search Tags(enter a tag and click enter)"
                     variant="outlined"
-                    label="Search Tags"
+                    value={newTag}
+                    onChange={(e) => setNewTag(e.target.value)}
+                    onKeyPress={(e) => e.key === 'Enter' && handleAdd()}
+                    style={{ marginTop: '8px', marginBottom:'8px' }}
                   />
                   <Button variant="contained"  onClick={searchPost} className={classes.searchButton} color="primary" >Search</Button>
                 </AppBar>
