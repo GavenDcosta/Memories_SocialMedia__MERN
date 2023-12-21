@@ -6,4 +6,4 @@ You can create posts, delete posts, read posts, update posts, get recommended po
 You cam also upload images for your posts
 You can login by using jwt or Google 
 
-[Check Deployment here](https://gaven-memories-social-media-mern.vercel.app/ ){:target="_blank"} 
+[Check Deployment here](https://gaven-memories-social-media-mern.vercel.app/ )
